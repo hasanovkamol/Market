@@ -1,0 +1,264 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D53DA5AB-CF30-4FC8-B7C9-4178257A678A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Market</RootNamespace>
+    <AssemblyName>Market</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Design, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Fonts, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Fonts.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="About_Region.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="About_Region.Designer.cs">
+      <DependentUpon>About_Region.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Account.cs">
+      <DependentUpon>Market.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Account_Employee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Account_Employee.Designer.cs">
+      <DependentUpon>Account_Employee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Add_Categorya.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Add_Categorya.Designer.cs">
+      <DependentUpon>Add_Categorya.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Add_Deliver.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Add_Deliver.Designer.cs">
+      <DependentUpon>Add_Deliver.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Add_Employee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Add_Employee.Designer.cs">
+      <DependentUpon>Add_Employee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Add_Product.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Add_Product.Designer.cs">
+      <DependentUpon>Add_Product.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BuyProduct.cs" />
+    <Compile Include="Categories.cs">
+      <DependentUpon>Market.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cities.cs">
+      <DependentUpon>Market.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Counties.cs">
+      <DependentUpon>Market.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Create_Position.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Create_Position.Designer.cs">
+      <DependentUpon>Create_Position.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Deliver.cs">
+      <DependentUpon>Market.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Employees.cs">
+      <DependentUpon>Market.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Employee_Account.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employee_Account.Designer.cs">
+      <DependentUpon>Employee_Account.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HomeClass.cs" />
+    <Compile Include="Market.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Market.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Market.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Market.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Market.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Market.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Orders.cs">
+      <DependentUpon>Market.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Order_Details.cs">
+      <DependentUpon>Market.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Position.cs">
+      <DependentUpon>Market.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Product.cs">
+      <DependentUpon>Market.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Saler_Manger.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Saler_Manger.Designer.cs">
+      <DependentUpon>Saler_Manger.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Server.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Server.Designer.cs">
+      <DependentUpon>Server.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>Market.tt</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="About_Region.resx">
+      <DependentUpon>About_Region.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Account_Employee.resx">
+      <DependentUpon>Account_Employee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Add_Categorya.resx">
+      <DependentUpon>Add_Categorya.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Add_Deliver.resx">
+      <DependentUpon>Add_Deliver.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Add_Employee.resx">
+      <DependentUpon>Add_Employee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Add_Product.resx">
+      <DependentUpon>Add_Product.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Create_Position.resx">
+      <DependentUpon>Create_Position.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee_Account.resx">
+      <DependentUpon>Employee_Account.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Saler_Manger.resx">
+      <DependentUpon>Saler_Manger.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Server.resx">
+      <DependentUpon>Server.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="Market.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Market.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Market.edmx.diagram">
+      <DependentUpon>Market.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Market.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Market.Context.cs</LastGenOutput>
+      <DependentUpon>Market.edmx</DependentUpon>
+    </Content>
+    <Content Include="Market.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Market.edmx</DependentUpon>
+      <LastGenOutput>Market.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

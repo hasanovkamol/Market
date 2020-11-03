@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a835ac4c9deb424b9d96fe9f060499e5" Name="Diagram1">
+        <EntityTypeShape EntityType="MarketModel.Account" Width="1.5" PointX="6.125" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MarketModel.Categories" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MarketModel.Cities" Width="1.5" PointX="4.25" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MarketModel.Counties" Width="1.5" PointX="2.375" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MarketModel.Deliver" Width="1.5" PointX="0.75" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MarketModel.Employees" Width="1.5" PointX="8" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="MarketModel.Orders" Width="1.5" PointX="9.875" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="MarketModel.Position" Width="1.5" PointX="6" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MarketModel.Product" Width="1.5" PointX="3.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MarketModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
+        <AssociationConnector Association="MarketModel.FK__Product__Categor__49C3F6B7" ManuallyRouted="false" />
+        <AssociationConnector Association="MarketModel.FK__Cities__Country___2C3393D0" ManuallyRouted="false" />
+        <AssociationConnector Association="MarketModel.FK__Product__Olib_Ke__48CFD27E" ManuallyRouted="false" >
+        </AssociationConnector>
+        <AssociationConnector Association="MarketModel.FK__Employees__Posit__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="MarketModel.FK__Orders__Employee__4CA06362" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="MarketModel.Order_Details" Width="1.5" PointX="10" PointY="0.875" />
+        <AssociationConnector Association="MarketModel.FK__Order_Det__Order__4E88ABD4" />
+        <AssociationConnector Association="MarketModel.FK__Order_Det__Produ__5070F446" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

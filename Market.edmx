@@ -1,0 +1,676 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="MarketModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Name="EmployeeID" Type="int" Nullable="false" />
+          <Property Name="User_Login" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="User_Password" Type="nvarchar" MaxLength="30" />
+          <Property Name="Create_Account" Type="datetime" />
+          <Property Name="Last_see" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Categories">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Categories_name" Type="nvarchar" MaxLength="20" />
+          <Property Name="PhotoPath" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Cities">
+          <Key>
+            <PropertyRef Name="City_ID" />
+          </Key>
+          <Property Name="City_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="City_name" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Country_Code" Type="nvarchar" MaxLength="4" />
+        </EntityType>
+        <EntityType Name="Counties">
+          <Key>
+            <PropertyRef Name="Counrty_Id" />
+          </Key>
+          <Property Name="Counrty_Id" Type="nvarchar" MaxLength="4" Nullable="false" />
+          <Property Name="Country_name" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Deliver">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Full_name" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Company_name" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Company_Phone" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Contract_name" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Contract_Title" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Country" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="City" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Employees">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="First_name" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Last_name" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="BirthDay" Type="datetime" />
+          <Property Name="HireDay" Type="datetime" />
+          <Property Name="Country" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="City" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="PhotoPath" Type="nvarchar" MaxLength="100" />
+          <Property Name="Pasport_number" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="Notes" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Payment_Bonus" Type="money" />
+          <Property Name="PositionID" Type="int" />
+        </EntityType>
+        <EntityType Name="Order_Details">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="OrderID" Type="int" />
+          <Property Name="Quentity" Type="int" />
+          <Property Name="ProductID" Type="int" />
+          <Property Name="UnitPrice" Type="money" />
+          <Property Name="Discount" Type="float" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmployeeID" Type="int" />
+          <Property Name="Money_Type" Type="nvarchar" MaxLength="20" />
+          <Property Name="OrderDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Position">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Position_name" Type="nvarchar" MaxLength="20" />
+          <Property Name="Payment" Type="money" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Product_Name" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Unit_Price" Type="money" />
+          <Property Name="UnitsInStock" Type="int" Nullable="false" />
+          <Property Name="UnitsOnOrder" Type="int" Nullable="false" />
+          <Property Name="EnterDate" Type="datetime" />
+          <Property Name="LastDate" Type="datetime" />
+          <Property Name="Olib_KeluvchiID" Type="int" />
+          <Property Name="CategoryID" Type="int" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK__Cities__Country___2C3393D0">
+          <End Role="Counties" Type="Self.Counties" Multiplicity="0..1" />
+          <End Role="Cities" Type="Self.Cities" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Counties">
+              <PropertyRef Name="Counrty_Id" />
+            </Principal>
+            <Dependent Role="Cities">
+              <PropertyRef Name="Country_Code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Employees__Posit__412EB0B6">
+          <End Role="Position" Type="Self.Position" Multiplicity="0..1" />
+          <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Position">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Employees">
+              <PropertyRef Name="PositionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Order_Det__Order__4E88ABD4">
+          <End Role="Orders" Type="Self.Orders" Multiplicity="0..1" />
+          <End Role="Order_Details" Type="Self.Order_Details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Order_Details">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Order_Det__Produ__5070F446">
+          <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="Order_Details" Type="Self.Order_Details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Order_Details">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Orders__Employee__4CA06362">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Product__Categor__49C3F6B7">
+          <End Role="Categories" Type="Self.Categories" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Product__Olib_Ke__48CFD27E">
+          <End Role="Deliver" Type="Self.Deliver" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Deliver">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="Olib_KeluvchiID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MarketModelStoreContainer">
+          <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cities" EntityType="Self.Cities" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Counties" EntityType="Self.Counties" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Deliver" EntityType="Self.Deliver" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Order_Details" EntityType="Self.Order_Details" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Position" EntityType="Self.Position" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Cities__Country___2C3393D0" Association="Self.FK__Cities__Country___2C3393D0">
+            <End Role="Counties" EntitySet="Counties" />
+            <End Role="Cities" EntitySet="Cities" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Employees__Posit__412EB0B6" Association="Self.FK__Employees__Posit__412EB0B6">
+            <End Role="Position" EntitySet="Position" />
+            <End Role="Employees" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Order_Det__Order__4E88ABD4" Association="Self.FK__Order_Det__Order__4E88ABD4">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="Order_Details" EntitySet="Order_Details" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Order_Det__Produ__5070F446" Association="Self.FK__Order_Det__Produ__5070F446">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Order_Details" EntitySet="Order_Details" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Orders__Employee__4CA06362" Association="Self.FK__Orders__Employee__4CA06362">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Product__Categor__49C3F6B7" Association="Self.FK__Product__Categor__49C3F6B7">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Product__Olib_Ke__48CFD27E" Association="Self.FK__Product__Olib_Ke__48CFD27E">
+            <End Role="Deliver" EntitySet="Deliver" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MarketModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Name="EmployeeID" Type="Int32" Nullable="false" />
+          <Property Name="User_Login" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="User_Password" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Create_Account" Type="DateTime" Precision="3" />
+          <Property Name="Last_see" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Categories">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Categories_name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="PhotoPath" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Product" Relationship="Self.FK__Product__Categor__49C3F6B7" FromRole="Categories" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Cities">
+          <Key>
+            <PropertyRef Name="City_ID" />
+          </Key>
+          <Property Name="City_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="City_name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Country_Code" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Counties" Relationship="Self.FK__Cities__Country___2C3393D0" FromRole="Cities" ToRole="Counties" />
+        </EntityType>
+        <EntityType Name="Counties">
+          <Key>
+            <PropertyRef Name="Counrty_Id" />
+          </Key>
+          <Property Name="Counrty_Id" Type="String" MaxLength="4" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Country_name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Cities" Relationship="Self.FK__Cities__Country___2C3393D0" FromRole="Counties" ToRole="Cities" />
+        </EntityType>
+        <EntityType Name="Deliver">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Full_name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Company_name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Company_Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Contract_name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Contract_Title" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Country" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="City" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Product" Relationship="Self.FK__Product__Olib_Ke__48CFD27E" FromRole="Deliver" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Employees">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="First_name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Last_name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BirthDay" Type="DateTime" Precision="3" />
+          <Property Name="HireDay" Type="DateTime" Precision="3" />
+          <Property Name="Country" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="City" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PhotoPath" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Pasport_number" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Notes" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Payment_Bonus" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="PositionID" Type="Int32" />
+          <NavigationProperty Name="Position" Relationship="Self.FK__Employees__Posit__412EB0B6" FromRole="Employees" ToRole="Position" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__Employee__4CA06362" FromRole="Employees" ToRole="Orders" />
+        </EntityType>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeID" Type="Int32" />
+          <Property Name="Money_Type" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="OrderDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Employees" Relationship="Self.FK__Orders__Employee__4CA06362" FromRole="Orders" ToRole="Employees" />
+          <NavigationProperty Name="Order_Details" Relationship="MarketModel.FK__Order_Det__Order__4E88ABD4" FromRole="Orders" ToRole="Order_Details" />
+        </EntityType>
+        <EntityType Name="Position">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Position_name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Payment" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="Employees" Relationship="Self.FK__Employees__Posit__412EB0B6" FromRole="Position" ToRole="Employees" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Product_Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Unit_Price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="UnitsInStock" Type="Int32" Nullable="false" />
+          <Property Name="UnitsOnOrder" Type="Int32" Nullable="false" />
+          <Property Name="EnterDate" Type="DateTime" Precision="3" />
+          <Property Name="LastDate" Type="DateTime" Precision="3" />
+          <Property Name="Olib_KeluvchiID" Type="Int32" />
+          <Property Name="CategoryID" Type="Int32" />
+          <NavigationProperty Name="Categories" Relationship="Self.FK__Product__Categor__49C3F6B7" FromRole="Product" ToRole="Categories" />
+          <NavigationProperty Name="Deliver" Relationship="Self.FK__Product__Olib_Ke__48CFD27E" FromRole="Product" ToRole="Deliver" />
+          <NavigationProperty Name="Order_Details" Relationship="MarketModel.FK__Order_Det__Produ__5070F446" FromRole="Product" ToRole="Order_Details" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK__Product__Categor__49C3F6B7">
+          <End Role="Categories" Type="Self.Categories" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cities__Country___2C3393D0">
+          <End Role="Counties" Type="Self.Counties" Multiplicity="0..1" />
+          <End Role="Cities" Type="Self.Cities" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Counties">
+              <PropertyRef Name="Counrty_Id" />
+            </Principal>
+            <Dependent Role="Cities">
+              <PropertyRef Name="Country_Code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Product__Olib_Ke__48CFD27E">
+          <End Role="Deliver" Type="Self.Deliver" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Deliver">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="Olib_KeluvchiID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Employees__Posit__412EB0B6">
+          <End Role="Position" Type="Self.Position" Multiplicity="0..1" />
+          <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Position">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Employees">
+              <PropertyRef Name="PositionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Orders__Employee__4CA06362">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MarketEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Account" EntityType="Self.Account" />
+          <EntitySet Name="Categories" EntityType="Self.Categories" />
+          <EntitySet Name="Cities" EntityType="Self.Cities" />
+          <EntitySet Name="Counties" EntityType="Self.Counties" />
+          <EntitySet Name="Deliver" EntityType="Self.Deliver" />
+          <EntitySet Name="Employees" EntityType="Self.Employees" />
+          <EntitySet Name="Orders" EntityType="Self.Orders" />
+          <EntitySet Name="Position" EntityType="Self.Position" />
+          <EntitySet Name="Product" EntityType="Self.Product" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <AssociationSet Name="FK__Product__Categor__49C3F6B7" Association="Self.FK__Product__Categor__49C3F6B7">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cities__Country___2C3393D0" Association="Self.FK__Cities__Country___2C3393D0">
+            <End Role="Counties" EntitySet="Counties" />
+            <End Role="Cities" EntitySet="Cities" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Product__Olib_Ke__48CFD27E" Association="Self.FK__Product__Olib_Ke__48CFD27E">
+            <End Role="Deliver" EntitySet="Deliver" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Employees__Posit__412EB0B6" Association="Self.FK__Employees__Posit__412EB0B6">
+            <End Role="Position" EntitySet="Position" />
+            <End Role="Employees" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Orders__Employee__4CA06362" Association="Self.FK__Orders__Employee__4CA06362">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <EntitySet Name="Order_Details" EntityType="MarketModel.Order_Details" />
+          <AssociationSet Name="FK__Order_Det__Order__4E88ABD4" Association="MarketModel.FK__Order_Det__Order__4E88ABD4">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="Order_Details" EntitySet="Order_Details" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Order_Det__Produ__5070F446" Association="MarketModel.FK__Order_Det__Produ__5070F446">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Order_Details" EntitySet="Order_Details" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Order_Details">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="OrderID" Type="Int32" />
+          <Property Name="Quentity" Type="Int32" />
+          <Property Name="ProductID" Type="Int32" />
+          <Property Name="UnitPrice" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Discount" Type="Double" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Orders" Relationship="MarketModel.FK__Order_Det__Order__4E88ABD4" FromRole="Order_Details" ToRole="Orders" />
+          <NavigationProperty Name="Product" Relationship="MarketModel.FK__Order_Det__Produ__5070F446" FromRole="Order_Details" ToRole="Product" />
+        </EntityType>
+        <Association Name="FK__Order_Det__Order__4E88ABD4">
+          <End Type="MarketModel.Orders" Role="Orders" Multiplicity="0..1" />
+          <End Type="MarketModel.Order_Details" Role="Order_Details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Order_Details">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Order_Det__Produ__5070F446">
+          <End Type="MarketModel.Product" Role="Product" Multiplicity="0..1" />
+          <End Type="MarketModel.Order_Details" Role="Order_Details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Order_Details">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MarketModelStoreContainer" CdmEntityContainer="MarketEntities">
+          <EntitySetMapping Name="Account">
+            <EntityTypeMapping TypeName="MarketModel.Account">
+              <MappingFragment StoreEntitySet="Account">
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="User_Login" ColumnName="User_Login" />
+                <ScalarProperty Name="User_Password" ColumnName="User_Password" />
+                <ScalarProperty Name="Create_Account" ColumnName="Create_Account" />
+                <ScalarProperty Name="Last_see" ColumnName="Last_see" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="MarketModel.Categories">
+              <MappingFragment StoreEntitySet="Categories">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Categories_name" ColumnName="Categories_name" />
+                <ScalarProperty Name="PhotoPath" ColumnName="PhotoPath" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cities">
+            <EntityTypeMapping TypeName="MarketModel.Cities">
+              <MappingFragment StoreEntitySet="Cities">
+                <ScalarProperty Name="City_ID" ColumnName="City_ID" />
+                <ScalarProperty Name="City_name" ColumnName="City_name" />
+                <ScalarProperty Name="Country_Code" ColumnName="Country_Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Counties">
+            <EntityTypeMapping TypeName="MarketModel.Counties">
+              <MappingFragment StoreEntitySet="Counties">
+                <ScalarProperty Name="Counrty_Id" ColumnName="Counrty_Id" />
+                <ScalarProperty Name="Country_name" ColumnName="Country_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Deliver">
+            <EntityTypeMapping TypeName="MarketModel.Deliver">
+              <MappingFragment StoreEntitySet="Deliver">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Full_name" ColumnName="Full_name" />
+                <ScalarProperty Name="Company_name" ColumnName="Company_name" />
+                <ScalarProperty Name="Company_Phone" ColumnName="Company_Phone" />
+                <ScalarProperty Name="Contract_name" ColumnName="Contract_name" />
+                <ScalarProperty Name="Contract_Title" ColumnName="Contract_Title" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="MarketModel.Employees">
+              <MappingFragment StoreEntitySet="Employees">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="First_name" ColumnName="First_name" />
+                <ScalarProperty Name="Last_name" ColumnName="Last_name" />
+                <ScalarProperty Name="BirthDay" ColumnName="BirthDay" />
+                <ScalarProperty Name="HireDay" ColumnName="HireDay" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="PhotoPath" ColumnName="PhotoPath" />
+                <ScalarProperty Name="Pasport_number" ColumnName="Pasport_number" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="Payment_Bonus" ColumnName="Payment_Bonus" />
+                <ScalarProperty Name="PositionID" ColumnName="PositionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="MarketModel.Orders">
+              <MappingFragment StoreEntitySet="Orders">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="Money_Type" ColumnName="Money_Type" />
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Position">
+            <EntityTypeMapping TypeName="MarketModel.Position">
+              <MappingFragment StoreEntitySet="Position">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Position_name" ColumnName="Position_name" />
+                <ScalarProperty Name="Payment" ColumnName="Payment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Product">
+            <EntityTypeMapping TypeName="MarketModel.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Product_Name" ColumnName="Product_Name" />
+                <ScalarProperty Name="Unit_Price" ColumnName="Unit_Price" />
+                <ScalarProperty Name="UnitsInStock" ColumnName="UnitsInStock" />
+                <ScalarProperty Name="UnitsOnOrder" ColumnName="UnitsOnOrder" />
+                <ScalarProperty Name="EnterDate" ColumnName="EnterDate" />
+                <ScalarProperty Name="LastDate" ColumnName="LastDate" />
+                <ScalarProperty Name="Olib_KeluvchiID" ColumnName="Olib_KeluvchiID" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="MarketModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Order_Details">
+            <EntityTypeMapping TypeName="MarketModel.Order_Details">
+              <MappingFragment StoreEntitySet="Order_Details">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="Quentity" ColumnName="Quentity" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
